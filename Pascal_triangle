@@ -1,0 +1,21 @@
+def comb(n, k):
+    def fact(n, k):
+        store = 1
+        while n - k >= 1:
+            store *= n - k
+            n -= 1
+        return store
+    return fact(n, 0) / (fact(n, k)*fact(k, 0))
+
+
+def pascal():
+    n = 0
+    k = 0
+    num_lines = int(input('input the number of lines: '))
+    while n <= num_lines:
+        while k <= n:
+            print('{:>10}'.format(int(comb(n, k))), end =' ')
+            k += 1
+        print()
+        k = 0
+        n += 1
